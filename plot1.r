@@ -1,3 +1,10 @@
+## Remarks
+##     --> resolution of the png images is 480 x 480 as asked for 
+##         in the assignment (in contradiction with the coursera examples 504x 504)
+##     --> in the two dates involved there are no "?" marks but nevertheless I added code
+##         to replace them with NA and than delete the rows with an NA value in it (just in case..)
+##     --> png created from scratch but code is added in comment to create the png from the screen device 
+
 ## check if package is installed and loaded if not install and load the package "sqldf"
 if (!("sqldf" %in% rownames(installed.packages()))){install.packages("sqldf")}
 if (!("sqldf" %in% loadedNamespaces())){library(sqldf)}
@@ -13,10 +20,16 @@ DS[DS=="?"]<-NA
 DS<-na.omit(DS)
 DS[["DateTime"]]<-strptime(paste(DS$Date,DS$Time),"%e/%m/%Y %H:%M:%S")
 
-## showing on the screen if not comment out
-hist(DS$Global_active_power,main="Global Active Power",xlab="Global Active Power (kilowatts)",ylab="Frequency",col="red",cex.lab=0.9,cex.main=1.1)
+## showing on the screen if not commented out
+hist(DS$Global_active_power,main="Global Active Power",xlab="Global Active Power (kilowatts)",ylab="Frequency",col="red",cex.lab=1.0,cex.main=1.2)
 
-## saving to a png file
+## To save the plot from the screen device uncomment the following code and put the following section in comment
+## dev.copy(png,"plot1.png", width=480, height=480,units="px")
+## dev.off()
+
+## creating the plot and saving to a png file
 png('plot1.png',width = 480, height = 480, units = "px")
-hist(DS$Global_active_power,main="Global Active Power",xlab="Global Active Power (kilowatts)",ylab="Frequency",col="red",cex.lab=0.9,cex.main=1.1)
+hist(DS$Global_active_power,main="Global Active Power",xlab="Global Active Power (kilowatts)",ylab="Frequency",col="red",cex.lab=1.0,cex.main=1.2)
 dev.off()
+
+

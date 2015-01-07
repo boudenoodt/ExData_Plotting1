@@ -1,3 +1,11 @@
+## Remarks
+##     --> resolution of the png images is 480 x 480 as asked for 
+##         in the assignment (in contradiction with the coursera examples 504x 504)
+##     --> in the two dates involved there are no "?" marks but nevertheless I added code
+##         to replace them with NA and than delete the rows with an NA value in it (just in case..)
+##     --> png created from scratch but code is added in comment to create the png from the screen device 
+
+
 ## check if package is installed and loaded if not install and load the package "sqldf"
 if (!("sqldf" %in% rownames(installed.packages()))){install.packages("sqldf")}
 if (!("sqldf" %in% loadedNamespaces())){library(sqldf)}
@@ -16,7 +24,11 @@ DS[["DateTime"]]<-strptime(paste(DS$Date,DS$Time),"%e/%m/%Y %H:%M:%S")
 ## showing on the screen if not comment out
  plot (DS$DateTime,DS$Global_active_power,xlab="",ylab="Global Active Power (kilowatts)",type="l")
 
-## saving to a png file
+## To save the plot from the screen device uncomment the following code and put the following section in comment
+## dev.copy(png,"plot2.png", width=480, height=480,units="px")
+## dev.off() 
+ 
+## creating the plot and saving to a png file
 png('plot2.png',width = 480, height = 480, units = "px")
 plot (DS$DateTime,DS$Global_active_power,xlab="",ylab="Global Active Power (kilowatts)",type="l")
 dev.off()
