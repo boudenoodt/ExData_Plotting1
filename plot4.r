@@ -1,3 +1,12 @@
+## Remarks
+##     --> resolution of the png images is 480 x 480 as asked for 
+##         in the assignment (in contradiction with the coursera examples 504x 504)
+##     --> in the two dates involved there are no "?" marks but nevertheless I added code
+##         to replace them with NA and than delete the rows with an NA value in it (just in case..)
+##     --> png created from scratch but code is added in comment to create the png from the screen device 
+##     --> the data file "household_power_consumption.txt" is required to be stored in a directory 
+##         "exdata_data_household_power_consumption" inside your R working directory
+
 ## check if package is installed and loaded if not install and load the package "sqldf"
 if (!("sqldf" %in% rownames(installed.packages()))){install.packages("sqldf")}
 if (!("sqldf" %in% loadedNamespaces())){library(sqldf)}
@@ -34,7 +43,12 @@ plot (DS$DateTime,DS$Voltage,cex.lab=0.9,ylim=c(234,246),xlab="datetime",ylab="V
 ## fourth graph  (second row ,second column)
 plot (DS$DateTime,DS$Global_reactive_power,ylim=c(0.0,0.5),xlab="datetime",ylab="Global_reactive_power",type="l")
  
-## saving to a png file
+ 
+## To save the plot from the screen device uncomment the following code and put the following section in comment
+## dev.copy(png,"plot4.png", width=480, height=480,units="px")
+## dev.off() 
+ 
+## creating the plot and saving to a png file
 png('plot4.png',width = 480, height = 480, units = "px")
 par(mfcol=c(2,2))
 par(mar = c(5, 5, 0, 0), oma = c(1, 1, 1, 1))
