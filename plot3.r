@@ -4,6 +4,8 @@
 ##     --> in the two dates involved there are no "?" marks but nevertheless I added code
 ##         to replace them with NA and than delete the rows with an NA value in it (just in case..)
 ##     --> png created from scratch but code is added in comment to create the png from the screen device 
+##     --> the data file "household_power_consumption.txt" is required to be stored in a directory 
+##         "exdata_data_household_power_consumption" inside your R working directory
 
 
 ## check if package is installed and loaded if not install and load the package "sqldf"
